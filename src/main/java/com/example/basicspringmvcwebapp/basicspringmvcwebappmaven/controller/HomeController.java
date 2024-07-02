@@ -18,6 +18,6 @@ public class HomeController {
     public String home(Model model) {
         List<Car> cars = carService.findAll();
         model.addAttribute("cars", cars);
-        return "index.jsp";
+        return "index";
     }
 }
