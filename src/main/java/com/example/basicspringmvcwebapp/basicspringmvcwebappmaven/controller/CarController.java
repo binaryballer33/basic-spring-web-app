@@ -8,6 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.view.RedirectView;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -22,7 +23,11 @@ public class CarController {
     @GetMapping
     public List<Car> getAllCars() {
         System.out.println("Getting all cars");
-        return carService.findAll();
+        List<Car> cars = carService.findAll();
+        if(cars.isEmpty()) {
+            cars = new ArrayList<>();
+        }
+        return cars;
     }
 
     // GET a single car by ID
